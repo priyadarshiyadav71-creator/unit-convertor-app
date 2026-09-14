@@ -5,21 +5,64 @@
 }
 :root {
   --bg-color: rgb(154, 154, 251);
-  --text-color: rgb(232, 131, 250);
+  --text-color: rgb(137, 131, 250);
   --box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 #display-data{
-    border: 2px solid transparent;
+    border: none;
     border-radius: 10px;
     width: 500px;
     height: 500px;
     background: rgb(255, 255, 255);
     margin: 10px auto;
     box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+#get-user-data{
+  margin: 19px auto;
+  font-size: larger;
+  gap: 5px;
+  transform: scale(1.2);
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+#btn{
+  margin: 10px auto;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  background: var(--bg-color);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+#btn:hover{
+  background: rgb(131, 131, 242);
+}
+#btn:active{
+  transform: scale(1.2, 0.93);
+}
+span{
+  margin: 10px 15px;
+}
+input{
+  width: 50px;
+  height: 40px;
+  border: 1px solid var(--bg-color);
+  border-radius: 10px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+  outline: none;
+  padding-left: 2px;
+  text-align: center;
+  font-size: 15px;
 }
 .varela-round-regular {
   font-family: "Varela Round", sans-serif;
-  font-weight: 600;
+  font-weight: 800;
   font-style: normal;
 }
 
