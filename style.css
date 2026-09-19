@@ -6,7 +6,7 @@
 :root {
   --bg-color: rgb(154, 154, 251);
   --text-color: rgb(137, 131, 250);
-  --box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 body {
@@ -18,7 +18,7 @@ body {
 #display-data{
     border: none;
     border-radius: 10px;
-    width: 500px;
+    width: 450px;
     height: 550px;
     background: rgb(255, 255, 255);
     margin: 10px auto;
@@ -33,6 +33,16 @@ body {
   margin: 10px 20px;
   align-self: flex-start;
   transform: scale(1.3);
+  user-select: none;
+}
+
+#menu-icon{
+  transition: transform 0.5s ease;
+}
+
+#menu-icon:hover{
+  transform: rotate(-90deg);
+
 }
 
 #convert-data-box{
@@ -45,6 +55,12 @@ body {
   display: flex;
   flex-direction: column;
   margin: 10px;
+  width: 350px;
+  align-items: flex-end;
+}
+.data-manipulation input{
+  width: 300px;
+  text-align: end;
 }
 
 select{
@@ -56,11 +72,13 @@ select{
   height: 328px;
   width: 100%;
   display: grid;
+  grid-template-columns: 145px 145px 145px;
   grid-template-areas: ". ce delete"
   "a7 a8 a9"
   "a4 a5 a6"
   "a1 a2 a3"
   ". a0 dot";
+  padding: 8px;
 
 }
 
@@ -71,7 +89,6 @@ select{
 }
 #delete{
   grid-column: 3;
-  /* background-color: rgb(204, 53, 53); */
 }
 #clear-all:hover{
   background-color: rgb(235, 101, 101);
@@ -84,19 +101,25 @@ select{
   color: white;
   font-size: 22px;
   cursor: pointer;
-  transition: transform 0.2s ease;
   box-shadow: var(--box-shadow);
   transform: scale(0.95);
+  margin: 2px;
 }
 .btn:hover{
   background: rgb(131, 131, 242);
 }
 
-span{
-  margin: 10px 15px;
+#menu{
+  margin: 24px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.material-symbols-outlined{
+  cursor: pointer;
 }
 input{
-  width: 50px;
+  width: 48px;
   height: 40px;
   border: none;
   outline: none;
