@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  --bg-color: rgb(154, 154, 251);
+  --bg-color: rgb(107, 107, 255);
   --text-color: rgb(137, 131, 250);
   --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -63,10 +63,13 @@ body {
   text-align: end;
 }
 
+
 select{
   outline: none;
   border: none;
+  text-align: end;
 }
+
 
 #numbers-button-container{
   height: 328px;
