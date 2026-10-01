@@ -107,6 +107,7 @@ select{
   box-shadow: var(--box-shadow);
   transform: scale(0.95);
   margin: 2px;
+  user-select: none;
 }
 .btn:hover{
   background: rgb(131, 131, 242);
