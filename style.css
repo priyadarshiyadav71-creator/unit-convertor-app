@@ -59,7 +59,8 @@ body {
   align-items: flex-end;
 }
 .data-manipulation input{
-  width: 300px;
+  max-width: 200px;
+  width: auto;
   text-align: end;
 }
 
@@ -76,7 +77,8 @@ select{
   width: 100%;
   display: grid;
   grid-template-columns: 145px 145px 145px;
-  grid-template-areas: ". ce delete"
+  grid-template-areas: 
+  ". ce delete"
   "a7 a8 a9"
   "a4 a5 a6"
   "a1 a2 a3"
@@ -106,7 +108,7 @@ select{
   cursor: pointer;
   box-shadow: var(--box-shadow);
   transform: scale(0.95);
-  margin: 2px;
+  margin: 0px;
   user-select: none;
 }
 .btn:hover{
