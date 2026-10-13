@@ -20,7 +20,24 @@ const secondInput = document.querySelector('#second-input')
 const firstUnit = firstUnitOption.value
 const secondUnit = secondUnitOption.value
 
-function cal(input) {
+let lastActiveInput = firstInput
+
+//store the last active input after click
+firstInput.addEventListener('focus', ()=> lastActiveInput = firstInput)
+secondInput.addEventListener('focus', ()=> lastActiveInput = secondInput)
+
+//any where user click the focus stay on the last active input
+window.addEventListener('mousedown', (e)=>{
+    if(!e.target.matches('input') && !e.target.matches('.unit')){
+        e.preventDefault()
+
+        lastActiveInput.focus()
+    }
+
+})
+
+// formula to cal Length units
+function calLengthUnit(input) {
     if (firstUnit === 'm' && firstInput.value === '') {
         console.log(input * length[`${secondUnit}`])
     }
@@ -40,4 +57,17 @@ function cal(input) {
     }
 }
 
+const btns = document.querySelectorAll('.btn')
+const numBtns = document.querySelectorAll('.num-btn')
+
+//click on button to get value at active input
+numBtns.forEach((numBtn)=>{
+    numBtn.addEventListener('click', ()=>{
+       if(lastActiveInput.value.length < 11 ){
+         lastActiveInput.value += numBtn.textContent
+
+         calLengthUnit(lastActiveInput.value)
+       }
+    })
+})
 

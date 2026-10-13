@@ -18,16 +18,20 @@
   </head>
 
   <body class="varela-round-regular">
+    <!-- ---------------------------title--------------------------- -->
     <h2>UNIT CONVERTER</h2>
     <div id="display-data">
+    <!-- --------------------------menu---------------------------- -->
       <div id="menu">
         <span id="menu-icon" class="material-symbols-outlined"> menu </span
         ><span id="change-mode">Length</span>
       </div>
+    <!-- -------------------input and select unit------------------- -->
       <div id="convert-data-box">
+    <!-- ----------------first input and select unit------- -->
         <div id="first-data-manipulation" class="data-manipulation">
           <input id="first-input" autofocus = 'autofocus' type="text" inputmode="numeric" placeholder="0" maxlength="10"/>
-          <select name="units" id="select-unit-first">
+          <select class="unit" name="units" id="select-unit-first">
             <option value="m">Meter</option>
             <option value="mm">Millimeter</option>
             <option value="cm">Centimeter</option>
@@ -39,10 +43,11 @@
             <option value="mi">Miles</option>
           </select>
         </div>
+    <!-- -----------------second input and select unit------- -->
 
         <div id="second-data-manipulation" class="data-manipulation">
           <input id="second-input" type="text" inputmode="numeric" placeholder="0" maxlength="10"/>
-          <select name="units" id="select-unit-second">
+          <select class="unit" name="units" id="select-unit-second">
             <option value="m">Meter</option>
             <option value="mm">Millimeter</option>
             <option value="cm">Centimeter</option>
@@ -55,12 +60,15 @@
           </select>
         </div>
       </div>
+    <!-- -----------------------buttons---------------- -->
 
       <div id="numbers-button-container">
+
         <button id="clear-all" class="btn" grid-area="ce">CE</button>
         <button id="delete" class="btn" grid-area="delete">
           <span class="material-symbols-outlined"> backspace </span>
         </button>
+
         <button id="a1" class="btn num-btn" style="grid-area: a1">1</button>
         <button id="a2" class="btn num-btn" style="grid-area: a2">2</button>
         <button id="a3" class="btn num-btn" style="grid-area: a3">3</button>
