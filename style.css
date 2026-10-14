@@ -77,7 +77,7 @@ select{
   display: grid;
   grid-template-columns: 145px 145px 145px;
   grid-template-areas: 
-  ". ce delete"
+  ". ce backspace"
   "a7 a8 a9"
   "a4 a5 a6"
   "a1 a2 a3"
@@ -91,7 +91,7 @@ select{
   background-color: rgb(204, 53, 53);
 
 }
-#delete{
+#backspace{
   grid-column: 3;
 }
 #clear-all:hover{

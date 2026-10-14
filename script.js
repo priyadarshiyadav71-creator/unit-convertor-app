@@ -66,8 +66,21 @@ numBtns.forEach((numBtn)=>{
        if(lastActiveInput.value.length < 11 ){
          lastActiveInput.value += numBtn.textContent
 
-         calLengthUnit(lastActiveInput.value)
+        //  calLengthUnit(lastActiveInput.value)
        }
     })
 })
 
+const clearAllBtn = document.querySelector('#clear-all')
+const backspaceBtn = document.querySelector('#backspace')
+
+// delete the last num
+backspaceBtn.addEventListener('click', ()=> {
+    lastActiveInput.value = lastActiveInput.value.slice(0,-1)
+
+})
+
+// clear the whole input
+clearAllBtn.addEventListener('click', ()=> {
+    lastActiveInput.value = null
+})
