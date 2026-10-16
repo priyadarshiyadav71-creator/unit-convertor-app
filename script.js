@@ -23,12 +23,12 @@ const secondUnit = secondUnitOption.value
 let lastActiveInput = firstInput
 
 //store the last active input after click
-firstInput.addEventListener('focus', ()=> lastActiveInput = firstInput)
-secondInput.addEventListener('focus', ()=> lastActiveInput = secondInput)
+firstInput.addEventListener('focus', () => lastActiveInput = firstInput)
+secondInput.addEventListener('focus', () => lastActiveInput = secondInput)
 
 //any where user click the focus stay on the last active input
-window.addEventListener('mousedown', (e)=>{
-    if(!e.target.matches('input') && !e.target.matches('.unit')){
+window.addEventListener('mousedown', (e) => {
+    if (!e.target.matches('input') && !e.target.matches('.unit')) {
         e.preventDefault()
 
         lastActiveInput.focus()
@@ -38,11 +38,11 @@ window.addEventListener('mousedown', (e)=>{
 
 // formula to cal Length units
 function calLengthUnit(input) {
-    if (firstUnit === 'm' && firstInput.value === '') {
-        console.log(input * length[`${secondUnit}`])
+    if (firstUnit === 'm' && lastActiveInput === secondInput) {
+        firstInput.value = input * length[`${secondUnit}`]
     }
-    else if (secondUnit === 'm' && secondInput.value === '') {
-        console.log(input * length[`${firstUnit}`])
+    else if (secondUnit === 'm' && lastActiveInput === firstInput) {
+        secondInput.value = input * length[`${firstUnit}`]
 
     }
     else {
@@ -61,13 +61,13 @@ const btns = document.querySelectorAll('.btn')
 const numBtns = document.querySelectorAll('.num-btn')
 
 //click on button to get value at active input
-numBtns.forEach((numBtn)=>{
-    numBtn.addEventListener('click', ()=>{
-       if(lastActiveInput.value.length < 11 ){
-         lastActiveInput.value += numBtn.textContent
+numBtns.forEach((numBtn) => {
+    numBtn.addEventListener('click', () => {
+        if (lastActiveInput.value.length < 11) {
+            lastActiveInput.value += numBtn.textContent
 
-        //  calLengthUnit(lastActiveInput.value)
-       }
+            calLengthUnit(lastActiveInput.value)
+        }
     })
 })
 
@@ -75,12 +75,14 @@ const clearAllBtn = document.querySelector('#clear-all')
 const backspaceBtn = document.querySelector('#backspace')
 
 // delete the last num
-backspaceBtn.addEventListener('click', ()=> {
-    lastActiveInput.value = lastActiveInput.value.slice(0,-1)
-
+backspaceBtn.addEventListener('click', () => {
+    lastActiveInput.value = lastActiveInput.value.slice(0, -1)
+    calLengthUnit(lastActiveInput.value)
 })
 
 // clear the whole input
-clearAllBtn.addEventListener('click', ()=> {
-    lastActiveInput.value = null
+clearAllBtn.addEventListener('click', () => {
+    lastActiveInput.value = ''
+    calLengthUnit(lastActiveInput.value)
+
 })
