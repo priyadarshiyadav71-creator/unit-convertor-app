@@ -38,21 +38,21 @@ window.addEventListener('mousedown', (e) => {
 
 // formula to cal Length units
 function calLengthUnit(input) {
-    if (firstUnit === 'm' && lastActiveInput === secondInput) {
-        firstInput.value = input * length[`${secondUnit}`]
+    if (firstUnitOption.value === 'm' && lastActiveInput === secondInput) {
+        firstInput.value = input * length[`${secondUnitOption.value}`]
     }
-    else if (secondUnit === 'm' && lastActiveInput === firstInput) {
-        secondInput.value = input * length[`${firstUnit}`]
+    else if (secondUnitOption.value === 'm' && lastActiveInput === firstInput) {
+        secondInput.value = input * length[`${firstUnitOption.value}`]
 
     }
     else {
-        if (secondInput.value !== '') {
-            const m = input * length[`${secondUnit}`]
-            console.log(m / length[`${firstUnit}`])
+        if (lastActiveInput === secondInput) {
+            const m = input * length[`${secondUnitOption.value}`]
+            firstInput.value = m / length[`${firstUnitOption.value}`]
         }
-        else if (firstInput.value !== '') {
-            const m = input * length[`${firstUnit}`]
-            console.log(m / length[`${secondUnit}`])
+        else if (lastActiveInput === firstInput) {
+            const m = input * length[`${firstUnitOption.value}`]
+            secondInput.value = m / length[`${secondUnitOption.value}`]
         }
     }
 }
