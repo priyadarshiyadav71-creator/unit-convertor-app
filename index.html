@@ -21,16 +21,24 @@
     <!-- ---------------------------title--------------------------- -->
     <h2>UNIT CONVERTER</h2>
     <div id="display-data">
-    <!-- --------------------------menu---------------------------- -->
+      <!-- --------------------------menu---------------------------- -->
       <div id="menu">
         <span id="menu-icon" class="material-symbols-outlined"> menu </span
         ><span id="change-mode">Length</span>
       </div>
-    <!-- -------------------input and select unit------------------- -->
+      <!-- -------------------input and select unit------------------- -->
       <div id="convert-data-box">
-    <!-- ----------------first input and select unit------- -->
+        <!-- ----------------first input and select unit------- -->
         <div id="first-data-manipulation" class="data-manipulation">
-          <input id="first-input" autofocus = 'autofocus' type="text" inputmode="numeric" placeholder="0" maxlength="10"/>
+          <input
+            id="first-input"
+            class="num-input"
+            autofocus="autofocus"
+            type="text"
+            inputmode="numeric"
+            placeholder="0"
+            maxlength="10"
+          />
           <select class="unit" name="units" id="select-unit-first">
             <option value="m">Meter</option>
             <option value="mm">Millimeter</option>
@@ -43,10 +51,17 @@
             <option value="mile">Miles</option>
           </select>
         </div>
-    <!-- -----------------second input and select unit------- -->
+        <!-- -----------------second input and select unit------- -->
 
         <div id="second-data-manipulation" class="data-manipulation">
-          <input id="second-input" type="text" inputmode="numeric" placeholder="0" maxlength="10"/>
+          <input
+            id="second-input"
+            type="text"
+            class="num-input"
+            inputmode="numeric"
+            placeholder="0"
+            maxlength="10"
+          />
           <select class="unit" name="units" id="select-unit-second">
             <option value="m">Meter</option>
             <option value="mm">Millimeter</option>
@@ -60,10 +75,9 @@
           </select>
         </div>
       </div>
-    <!-- -----------------------buttons---------------- -->
+      <!-- -----------------------buttons---------------- -->
 
       <div id="numbers-button-container">
-
         <button id="clear-all" class="btn" grid-area="ce">CE</button>
         <button id="backspace" class="btn" grid-area="backspace">
           <span class="material-symbols-outlined"> backspace </span>

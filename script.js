@@ -39,20 +39,20 @@ window.addEventListener('mousedown', (e) => {
 // formula to cal Length units
 function calLengthUnit(input) {
     if (firstUnitOption.value === 'm' && lastActiveInput === secondInput) {
-        firstInput.value = input * length[`${secondUnitOption.value}`]
+        firstInput.value = formatter.format(input * length[`${secondUnitOption.value}`])
     }
     else if (secondUnitOption.value === 'm' && lastActiveInput === firstInput) {
-        secondInput.value = input * length[`${firstUnitOption.value}`]
+        secondInput.value = formatter.format(input * length[`${firstUnitOption.value}`])
 
     }
     else {
         if (lastActiveInput === secondInput) {
             const m = input * length[`${secondUnitOption.value}`]
-            firstInput.value = m / length[`${firstUnitOption.value}`]
+            firstInput.value = formatter.format(m / length[`${firstUnitOption.value}`])
         }
         else if (lastActiveInput === firstInput) {
             const m = input * length[`${firstUnitOption.value}`]
-            secondInput.value = m / length[`${secondUnitOption.value}`]
+            secondInput.value = formatter.format(m / length[`${secondUnitOption.value}`])
         }
     }
 }
@@ -85,4 +85,30 @@ clearAllBtn.addEventListener('click', () => {
     lastActiveInput.value = ''
     calLengthUnit(lastActiveInput.value)
 
+})
+
+// grabbing both input box 
+const numInputs = document.querySelectorAll('.num-input')
+
+
+// now also user get the converted values using key press using keyboard
+numInputs.forEach((numInput) => {
+    numInput.addEventListener('input', () => {
+        calLengthUnit(lastActiveInput.value)
+    })
+})
+
+// to make output numbers decimal upto 8
+const formatter = new Intl.NumberFormat('en-US', {
+    maximumFractionDigits: 8,
+    useGrouping: false
+})
+
+// whenever user changes units it give converted value instantly
+secondUnitOption.addEventListener('change', ()=>{
+    calLengthUnit(lastActiveInput.value)
+})
+
+firstUnitOption.addEventListener('change', ()=>{
+    calLengthUnit(lastActiveInput.value)
 })
