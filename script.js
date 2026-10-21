@@ -12,6 +12,19 @@ const length = {
     mile: 1609.344
 }
 
+const weight = {
+  // metric units
+  kg: 1,
+  g: 0.001,
+  mg: 0.000001,
+
+  // imperial units
+  lb: 0.45359237,
+  oz: 0.028349523125,
+  stone: 6.35029318,
+  ton: 907.18474 // US short ton
+}
+
 const firstUnitOption = document.querySelector("#select-unit-first")
 const secondUnitOption = document.querySelector("#select-unit-second")
 const firstInput = document.querySelector('#first-input')
