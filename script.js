@@ -13,16 +13,16 @@ const length = {
 }
 
 const weight = {
-  // metric units
-  kg: 1,
-  g: 0.001,
-  mg: 0.000001,
+    // metric units
+    kg: 1,
+    g: 0.001,
+    mg: 0.000001,
 
-  // imperial units
-  lb: 0.45359237,
-  oz: 0.028349523125,
-  stone: 6.35029318,
-  ton: 907.18474 // US short ton
+    // imperial units
+    lb: 0.45359237,
+    oz: 0.028349523125,
+    stone: 6.35029318,
+    ton: 907.18474 // US short ton
 }
 
 const firstUnitOption = document.querySelector("#select-unit-first")
@@ -86,6 +86,7 @@ numBtns.forEach((numBtn) => {
 
 const clearAllBtn = document.querySelector('#clear-all')
 const backspaceBtn = document.querySelector('#backspace')
+const dotBtn = document.querySelector('#dot')
 
 // delete the last num
 backspaceBtn.addEventListener('click', () => {
@@ -97,18 +98,43 @@ backspaceBtn.addEventListener('click', () => {
 clearAllBtn.addEventListener('click', () => {
     lastActiveInput.value = ''
     calLengthUnit(lastActiveInput.value)
+})
 
+// Check for dot never be twice and starts with dot always have 0 first this is for only app btn
+dotBtn.addEventListener('mousedown', () => {
+    if (lastActiveInput.value.includes('.')) return
+
+    if (lastActiveInput.value === '') {
+        lastActiveInput.value = '0.'
+    }
+    else if (lastActiveInput.value.length < 11) {
+        lastActiveInput.value += '.'
+    }
+    calLengthUnit(lastActiveInput.value)
 })
 
 // grabbing both input box 
 const numInputs = document.querySelectorAll('.num-input')
 
-
 // now also user get the converted values using key press using keyboard
+// Check for dot never be twice and starts with dot always have 0 first this is for keyboard key 
 numInputs.forEach((numInput) => {
-    numInput.addEventListener('input', () => {
-        calLengthUnit(lastActiveInput.value)
-    })
+  numInput.addEventListener('input', () => {
+    let val = numInput.value
+
+    // allow only digits and one dot
+    val = val.replace(/[^0-9.]/g, '')
+    const firstDot = val.indexOf('.')
+    if (firstDot !== -1) {
+      val = val.slice(0, firstDot + 1) + val.slice(firstDot + 1).replace(/\./g, '')
+    }
+
+    // start with dot, so add 0 => "0."
+    if (val.startsWith('.')) val = '0' + val
+
+    numInput.value = val
+    calLengthUnit(lastActiveInput.value)
+  })
 })
 
 // to make output numbers decimal upto 8
@@ -118,10 +144,12 @@ const formatter = new Intl.NumberFormat('en-US', {
 })
 
 // whenever user changes units it give converted value instantly
-secondUnitOption.addEventListener('change', ()=>{
-    calLengthUnit(lastActiveInput.value)
+secondUnitOption.addEventListener('change', () => {
+    lastActiveInput = firstInput;
+    calLengthUnit(firstInput.value);
 })
 
-firstUnitOption.addEventListener('change', ()=>{
-    calLengthUnit(lastActiveInput.value)
+firstUnitOption.addEventListener('change', () => {
+    lastActiveInput = secondInput;
+    calLengthUnit(secondInput.value);
 })
