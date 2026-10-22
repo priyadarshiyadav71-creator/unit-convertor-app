@@ -6,8 +6,7 @@ A simple, fast unit converter built with **HTML, CSS and vanilla JavaScript**. T
   <img src="./screenshot.png" alt="Unit Converter screenshot" width="380">
 </p>
 
-**Live demo:** [your-username.github.io/your-repo](https://your-username.github.io/your-repo)
-<!-- Replace with your GitHub Pages / hosted link, or delete this line -->
+**Live demo:** [(https://priyadarshiyadav71-creator.github.io/unit-convertor-app/)]
 
 ---
 
@@ -29,21 +28,21 @@ A simple, fast unit converter built with **HTML, CSS and vanilla JavaScript**. T
 
 ### Length
 
-| Metric | Imperial |
-| ------ | -------- |
-| millimeter (mm) | inch |
-| centimeter (cm) | foot |
-| meter (m) | yard |
-| kilometer (km) | mile |
+| Metric          | Imperial |
+| ----------------| ---------|
+| millimeter (mm) | inch     |
+| centimeter (cm) | foot     |
+| meter (m)       | yard     |
+| kilometer (km)  | mile     |
 
 ### Weight
 
-| Metric | Imperial |
-| ------ | -------- |
+| Metric         | Imperial   |
+| ---------------| -----------|
 | milligram (mg) | ounce (oz) |
-| gram (g) | pound (lb) |
-| kilogram (kg) | stone |
-| | ton (US short ton) |
+| gram (g)       | pound (lb) |
+| kilogram (kg)  | stone      |
+|                 | ton (US short ton) |
 
 > **Note:** Weight conversion factors are defined in the code, but the converter UI currently runs length conversion only. Weight support is on the roadmap below.
 
@@ -71,7 +70,7 @@ No build tools or dependencies are needed.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/your-repo.git
+git clone (https://priyadarshiyadav71-creator.github.io/unit-convertor-app/)
 
 # 2. Open the project folder
 cd your-repo
@@ -88,9 +87,9 @@ You can also use a local server such as the VS Code **Live Server** extension.
 ├── index.html     # Page layout, inputs, dropdowns and keypad
 ├── style.css      # Styling
 ├── script.js      # Conversion logic and event handling
-└── README.md
+├── README.md
+└── screenshot.png #screenshot of the website  
 ```
-<!-- Update file names to match your project -->
 
 ## Usage
 
@@ -104,7 +103,6 @@ You can also use a local server such as the VS Code **Live Server** extension.
 - [ ] Wire up weight conversion
 - [ ] Add a category switcher (Length / Weight / Temperature / etc.)
 - [ ] Add a swap-units button
-- [ ] Support negative numbers
 - [ ] Improve mobile layout
 
 ## Contributing
@@ -117,11 +115,6 @@ Contributions are welcome!
 4. Push to the branch: `git push origin feature/your-feature`
 5. Open a pull request
 
-## License
-
-This project is licensed under the [MIT License](./LICENSE).
-<!-- Add a LICENSE file, or change this section to match your license -->
-
 ## Author
 
-Made by [your-name](https://github.com/your-username)
+Made by [Priyadarshi](https://priyadarshiyadav71-creator.github.io/unit-convertor-app/)
